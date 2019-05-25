@@ -106,7 +106,7 @@ about
 function pushbutton4_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton4 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
-% Keluar App
+% Keluar Aplikasi
 pilihan = questdlg('Apakah anda ingin menutup program?', ...
 	'Menutup Program', ...
 	'Ya','Tidak','Tidak');
