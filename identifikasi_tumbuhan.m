@@ -22,7 +22,7 @@ function varargout = identifikasi_tumbuhan(varargin)
 
 % Edit the above text to modify the response to help identifikasi_tumbuhan
 
-% Last Modified by GUIDE v2.5 21-May-2019 10:33:15
+% Last Modified by GUIDE v2.5 12-Jun-2019 19:52:13
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -95,7 +95,7 @@ function pushbutton1_Callback(hObject, eventdata, handles)
  
 if ~isequal(filename,0)
     Img_awl = imread(fullfile(pathname,filename));
-    Img = imresize(Img_awl,[250 250]);    
+    Img = imresize(Img_awl,[200 250]);    
     axes(handles.axes1)
     imshow(Img)
     title('Citra RGB')
@@ -361,22 +361,29 @@ end
 
 if satu>dua&&satu>tiga
     set(handles.edit1,'String','Jambu');
+    daun_jambu;
 elseif dua>satu&&dua>tiga
     set(handles.edit1,'String','Kersen');
+    daun_kersen;
 elseif tiga>satu&&tiga>dua
     set(handles.edit1,'String','Sirih');
+    daun_sirih;
 else
     hasil3=min(hasil2);
     hasil3(1,1)=hasil2(1,1); 
     hasil3(1,2)=hasil2(1,2);
     if hasil3(1,2)==1
         kl='Jambu';
+        daun_jambu;
     elseif hasil3(1,2)==2
         kl='Kersen';
+        daun_kersen;
     elseif hasil3(1,2)==3
         kl='Sirih';
+        daun_sirih;
     end
-    set(handles.edit1,'String',kl);    
+    set(handles.edit1,'String',kl);
+    
 end
 
 % --- Executes on button press in pushbutton7.
@@ -507,3 +514,11 @@ function edit6_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in pushbutton9.
+function pushbutton9_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton9 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+guidata(daun_jambu);
